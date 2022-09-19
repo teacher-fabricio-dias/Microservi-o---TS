@@ -10,8 +10,9 @@ usersRoute.get('/users', (req: Request, res: Response, next: NextFunction) => {
 
 usersRoute.get(
   '/users/:uuid',
-  (req: Request, res: Response, next: NextFunction) => {
-    res.sendStatus(200);
+  (req: Request<{ uuid: String }>, res: Response, next: NextFunction) => {
+    const uuid = req.params.uuid;
+    res.status(200).send({ uuid });
   }
 );
 
