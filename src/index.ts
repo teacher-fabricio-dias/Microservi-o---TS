@@ -1,3 +1,11 @@
-// run `node index.js` in the terminal
+import express, { Request, Response, NextFunction } from 'express';
 
-console.log(`Hello Node.js v${process.versions.node}!`);
+const app = express();
+
+app.get('/status', (req: Request, res: Response, next: NextFunction) => {
+  res.status(200).send({ foo: 'bar' });
+});
+
+app.listen(3000, () => {
+  console.log('Estou funcionando');
+});
